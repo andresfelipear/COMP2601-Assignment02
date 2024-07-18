@@ -1,5 +1,3 @@
-import javax.swing.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -16,7 +14,7 @@ public class CountingGame
     private List<String> vowels;
     private List<String> consonants;
 
-    public String play(final String input)
+    public String[] play(final String input)
     {
         final List<String> letters;
         final String       regexConsonants;
@@ -45,9 +43,14 @@ public class CountingGame
         return gameResultDetails();
     }
 
-    private String gameResultDetails()
+    private String[] gameResultDetails()
     {
-        return String.format("Vowels: %s, Consonants: %s", vowels.size(), consonants.size());
+        final String numberVowels;
+        final String numberConsonants;
+
+        numberVowels = String.format("Vowels: %s", vowels.size());
+        numberConsonants = String.format("Consonants: %s", consonants.size());
+        return new String[] {numberVowels, numberConsonants};
     }
 
     public List<String> getVowels()
