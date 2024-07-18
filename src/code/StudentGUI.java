@@ -2,8 +2,6 @@ import javax.swing.*;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 /**
  * CountingGameUI
@@ -17,15 +15,12 @@ public class StudentGUI
     private static final String MENU_TITLE;
     private static final String OPTION1;
     private static final String EXIT;
-    private static final String SUBMIT_BUTTON;
     private static final int WIDTH;
     private static final int HEIGHT;
     private static final int ROWS_MAIN_PANEL;
     private static final int COLS_MAIN_PANEL;
     private static final int GAP_MAIN_PANEL;
     private static final int MEDIUM_WIDTH;
-    private static final int SMALL_WIDTH;
-    private static final int SMALL_HEIGHT;
     private static final int LARGE_HEIGHT;
     private static final int VOWELS;
     private static final int CONSONANTS;
@@ -54,12 +49,9 @@ public class StudentGUI
         GAME_DESCRIPTION = "Enter a input in the text field";
         OPTION1 = "How To Play";
         EXIT = "Exit";
-        SUBMIT_BUTTON = "Count";
         WIDTH = 800;
         HEIGHT = 600;
         MEDIUM_WIDTH = 160;
-        SMALL_WIDTH = 100;
-        SMALL_HEIGHT = 20;
         LARGE_HEIGHT = 50;
         ROWS_MAIN_PANEL = 4;
         COLS_MAIN_PANEL = 1;
@@ -114,12 +106,7 @@ public class StudentGUI
         panel.add(vowelLabel, BorderLayout.SOUTH);
         panel.add(consonantLabel, BorderLayout.SOUTH);
 
-        userInput.addCaretListener(new CaretListener() {
-            @Override
-            public void caretUpdate(CaretEvent e) {
-                updateLabels();
-            }
-        });
+        userInput.addCaretListener(e -> updateLabels());
 
         gameInstructions.addActionListener(e -> JOptionPane.showMessageDialog(frame, getGameInstructions()));
         exit.addActionListener(e -> frame.dispose());
