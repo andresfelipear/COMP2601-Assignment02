@@ -14,6 +14,16 @@ public class CountingGame
     private List<String> vowels;
     private List<String> consonants;
 
+    /**
+     * Processes the input string to count vowels and consonants.
+     * This method takes an input string, splits it into individual characters, and filters them
+     * to identify vowels and consonants. It then stores the counts of each and returns an array
+     * containing formatted strings representing the counts of vowels and consonants.
+     *
+     * @param input The input string to be analyzed.
+     * @return A string array where the first element is the count of vowels and the second
+     *         element is the count of consonants, both formatted as "Vowels: X" and "Consonants: Y".
+     */
     public String[] play(final String input)
     {
         final List<String> letters;
@@ -43,6 +53,15 @@ public class CountingGame
         return gameResultDetails();
     }
 
+    /**
+     * Generates the result details for the current input.
+     * This method formats the counts of vowels and consonants into strings and returns them
+     * in an array. The first element represents the number of vowels, and the second element
+     * represents the number of consonants.
+     *
+     * @return A string array where the first element is the formatted count of vowels and the
+     *         second element is the formatted count of consonants.
+     */
     private String[] gameResultDetails()
     {
         final String numberVowels;
@@ -53,11 +72,21 @@ public class CountingGame
         return new String[] {numberVowels, numberConsonants};
     }
 
+    /**
+     * Retrieves the list of vowels found in the last processed input.
+     *
+     * @return A list of strings where each string is a vowel found in the last processed input.
+     */
     public List<String> getVowels()
     {
         return vowels;
     }
 
+    /**
+     * Retrieves the list of consonants found in the last processed input.
+     *
+     * @return A list of strings where each string is a consonant found in the last processed input.
+     */
     public List<String> getConsonants()
     {
         return consonants;

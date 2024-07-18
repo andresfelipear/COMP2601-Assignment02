@@ -1,6 +1,4 @@
 import javax.swing.*;
-import javax.swing.event.CaretEvent;
-import javax.swing.event.CaretListener;
 import java.awt.*;
 
 /**
@@ -15,23 +13,23 @@ public class StudentGUI
     private static final String MENU_TITLE;
     private static final String OPTION1;
     private static final String EXIT;
-    private static final int WIDTH;
-    private static final int HEIGHT;
-    private static final int ROWS_MAIN_PANEL;
-    private static final int COLS_MAIN_PANEL;
-    private static final int GAP_MAIN_PANEL;
-    private static final int MEDIUM_WIDTH;
-    private static final int LARGE_HEIGHT;
-    private static final int VOWELS;
-    private static final int CONSONANTS;
     private static final String GAME_DESCRIPTION;
+    private static final int    WIDTH;
+    private static final int    HEIGHT;
+    private static final int    ROWS_MAIN_PANEL;
+    private static final int    COLS_MAIN_PANEL;
+    private static final int    GAP_MAIN_PANEL;
+    private static final int    MEDIUM_WIDTH;
+    private static final int    LARGE_HEIGHT;
+    private static final int    VOWELS;
+    private static final int    CONSONANTS;
 
     final CountingGame game;
-    final JFrame frame;
-    final JMenuBar menuBar;
-    final JMenu menu;
-    final JPanel panel;
-    final JPanel userPanel;
+    final JFrame       frame;
+    final JMenuBar     menuBar;
+    final JMenu        menu;
+    final JPanel       panel;
+    final JPanel       userPanel;
 
     final JMenuItem gameInstructions;
     final JMenuItem exit;
@@ -44,22 +42,30 @@ public class StudentGUI
 
     static
     {
-        APP_NAME = "Counting Vowels and Consonants";
-        MENU_TITLE = "OPTIONS";
+        APP_NAME         = "Counting Vowels and Consonants";
+        MENU_TITLE       = "OPTIONS";
         GAME_DESCRIPTION = "Enter a input in the text field";
-        OPTION1 = "How To Play";
-        EXIT = "Exit";
-        WIDTH = 800;
-        HEIGHT = 600;
-        MEDIUM_WIDTH = 160;
-        LARGE_HEIGHT = 50;
-        ROWS_MAIN_PANEL = 4;
-        COLS_MAIN_PANEL = 1;
-        GAP_MAIN_PANEL = 10;
-        VOWELS = 0;
-        CONSONANTS = 1;
+        OPTION1          = "How To Play";
+        EXIT             = "Exit";
+        WIDTH            = 800;
+        HEIGHT           = 600;
+        MEDIUM_WIDTH     = 160;
+        LARGE_HEIGHT     = 50;
+        ROWS_MAIN_PANEL  = 4;
+        COLS_MAIN_PANEL  = 1;
+        GAP_MAIN_PANEL   = 10;
+        VOWELS           = 0;
+        CONSONANTS       = 1;
     }
 
+    /**
+     * Constructs a StudentGUI instance, initializing the user interface components and setting up the GUI.
+     * This constructor creates a new instance of the CountingGame, initializes the main JFrame,
+     * panels, menu bar, menu items, labels, and text area. It also sets default values for the
+     * vowel and consonant labels, and calls the createAndShowGUI() method to set up and display
+     * the GUI components. The GUI includes a menu for instructions and exit options, a text area
+     * for user input, and labels to display the counts of vowels and consonants.
+     */
     public StudentGUI()
     {
         game = new CountingGame();
@@ -80,6 +86,15 @@ public class StudentGUI
         createAndShowGUI();
     }
 
+    /**
+     * Updates the vowel and consonant labels based on the current text in the JTextArea.
+     * This method retrieves the current text from the JTextArea, processes it using the
+     * game's play method to count vowels and consonants, and then updates the
+     * vowel and consonant labels with the respective counts.
+     * The method assumes that the game's play method returns a string array where:
+     * - response[VOWELS] contains the count of vowels
+     * - response[CONSONANTS] contains the count of consonants
+     */
     public static void main(String[] args)
     {
         new StudentGUI();
@@ -87,7 +102,7 @@ public class StudentGUI
 
     /**
      * Creates and displays the GUI for the Guess the Number Game.
-     * This method initializes all components and sets up event listeners.
+     * This method sets up event listeners.
      */
     private void createAndShowGUI()
     {
@@ -149,21 +164,41 @@ public class StudentGUI
                 3. You can exit from the "Options" menu.""";
     }
 
+    /**
+     * Returns the JFrame object used in the GUI.
+     *
+     * @return the JFrame instance representing the main window of the GUI
+     */
     public JFrame getFrame()
     {
         return frame;
     }
 
+    /**
+     * Returns the JTextArea used for user input in the GUI.
+     *
+     * @return the JTextArea instance where users can type their input
+     */
     public JTextArea getTextArea()
     {
         return userInput;
     }
 
+    /**
+     * Returns the JLabel displaying the count of vowels in the GUI.
+     *
+     * @return the JLabel instance that shows the number of vowels
+     */
     public JLabel getVowelLabel()
     {
         return vowelLabel;
     }
 
+    /**
+     * Returns the JLabel displaying the count of consonants in the GUI.
+     *
+     * @return the JLabel instance that shows the number of consonants
+     */
     public JLabel getConsonantLabel()
     {
         return consonantLabel;

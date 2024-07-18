@@ -19,6 +19,10 @@ public class Counter implements Runnable
         count = 0;
     }
 
+    /**
+     * Increments the count value up to MAX_COUNT.
+     * This method is synchronized to ensure thread safety.
+     */
     @Override
     public void run()
     {
@@ -28,11 +32,21 @@ public class Counter implements Runnable
         }
     }
 
+    /**
+     * Increments the counter value by one.
+     * This method is synchronized to ensure that only one thread
+     * can modify the count at a time, preventing race conditions.
+     */
     public synchronized void increment()
     {
         count++;
     }
 
+    /**
+     * Returns the current count value.
+     *
+     * @return the current count value
+     */
     public int getCount()
     {
         return count;
