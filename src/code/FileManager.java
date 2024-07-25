@@ -20,18 +20,23 @@ public class FileManager
     private static final String ERROR_READING_FILE;
     private static final String ERROR_CLOSING_FILE;
     private static final String FILE_NAME;
+    private static final String SPLIT_CHARACTER;
+    private static final int    DIVISOR;
+    private static final int    EVEN_NUMBER;
 
     static
     {
-        FILE_NAME = "numbers.txt";
+        FILE_NAME          = "numbers.txt";
         ERROR_CLOSING_FILE = "Error closing the file";
         ERROR_READING_FILE = "Error reading file";
+        DIVISOR            = 2;
+        EVEN_NUMBER        = 0;
+        SPLIT_CHARACTER    = "\\s+";
     }
 
     public static void main(String[] args)
     {
-        System.out.println("Hello World!");
-        FileManager fm;
+        final FileManager fm;
         fm = new FileManager();
 
         fm.readFileAndSaveNumbers();
@@ -63,12 +68,12 @@ public class FileManager
             while(scanner.hasNextLine())
             {
                 line = scanner.nextLine();
-                numbers = Arrays.stream(line.split("\\s+")).toList();
+                numbers = Arrays.stream(line.split(SPLIT_CHARACTER)).toList();
                 numbers.stream()
                        .mapToInt(Integer::parseInt)
                        .forEach(num ->
                                 {
-                                    if(num % 2 == 0)
+                                    if(num % DIVISOR == EVEN_NUMBER)
                                     {
                                         evenNumbers.add(num);
                                     }
